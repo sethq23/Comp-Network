@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <title>ParkMe - Feedback</title>
+    <link rel="stylesheet" type="text/css" href="parking.css">
+    <style>
+        /* Your existing styles for feedback form */
+    </style>
+</head>
+
+
+<body>
+    <div id="top-bar">
+        <ul>
+           
+            <li><a href="parkinglive_hue.html">Home</a></li>
+            <li><a href="feedback_Hue.html">Feedback</a></li>
+            <li><a href="loginadmin.html">Admin page</a></li>
+        </ul>
+    </div>
+    <div class="content-container">
+        <div class="logo-container">
+            <!-- Your logo content goes here -->
+        </div>
+        <div class="header">Feedback</div>
+        <div class="feedback-section">
+            <form id="feedback-form" onsubmit="submitFeedback(event)">
+                <div class="header">Rate us out of 10!</div>
+                <input type="number" id="rating" name="rating" min="1" max="10" required>
+
+                <div class="header">Rate us by stars!</div>
+                <select id="stars" name="stars" required>
+                    <option value="1">1 star</option>
+                    <option value="2">2 stars</option>
+                    <option value="3">3 stars</option>
+                    <option value="4">4 stars</option>
+                    <option value="5">5 stars</option>
+                </select>
+
+                <label for="description">Description:</label>
+                <textarea id="description" name="description" rows="4" required></textarea>
+
+                <button type="submit">Submit Feedback</button>
+            </form>
+        </div>
+    </div>
+   
+    <script>
+        function submitFeedback(event) {
+            event.preventDefault();
+            
+            // Simulate successful submission
+            alert('Feedback submitted successfully!');
+            // You might want to add additional logic or UI updates here
+            // Redirect or perform other actions after submitting feedback
+            
+            // For example, redirect to another page after displaying the success message
+            window.location.href = 'feedback_Hue.html';
+        }
+    </script>
+</body>
+
+</html>
