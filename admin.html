@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Parking Admin</title>
+</head>
+
+<body>
+    <!-- Link to redirect to the home page -->
+    <p><a href="parkinglive_U_C_3.html">Go to Home Page</a></p>
+
+    <h1>Parking Admin Page</h1>
+    <button onclick="clearReservations()">Clear Reservations</button>
+
+    <div id="feedback-section">
+        <!-- Display feedback here -->
+    </div>
+
+    <script>
+        function clearReservations() {
+            // Replace this URL with your actual backend endpoint to clear reservations
+            const clearReservationsAPI = 'https://your-backend-domain.com/clear-reservations';
+
+            fetch(clearReservationsAPI, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({}),
+            })
+            .then(response => response.json())
+            .then(data => {
+                alert('Reservations cleared successfully!');
+                // Fetch and display feedback after clearing reservations
+                fetchAndDisplayFeedback();
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                alert('Error clearing reservations. Please try again.');
+            });
+        }
+
+        // Function to fetch and display feedback
+        function fetchAndDisplayFeedback() {
+            // Replace this URL with your actual backend endpoint to get feedback
+            const feedbackAPI = 'https://your-backend-domain.com/get-feedback';
+
+            fetch(feedbackAPI)
+                .then(response => response.json())
+                .then(feedbackData => {
+                    // Display feedback in the feedback-section div
+                    const feedbackSection = document.getElementById('feedback-section');
+                    feedbackSection.innerHTML = '';
+
+                    feedbackData.forEach(feedback => {
+                        const feedbackItem = document.createElement('div');
+                        feedbackItem.innerHTML = `<p><strong>Rating:</strong> ${feedback.rating}</p>
+                                                  <p><strong>Stars:</strong> ${feedback.stars}</p>
+                                                  <p><strong>Description:</strong> ${feedback.description}</p>
+                                                  <hr>`;
+                        feedbackSection.appendChild(feedbackItem);
+                    });
+                })
+                .catch(error => {
+                    console.error('Error fetching feedback:', error);
+                });
+        }
+        
+        // Call fetchAndDisplayFeedback when the admin page loads
+        fetchAndDisplayFeedback();
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,129 @@
+<!-- login.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="stylesheet" type="text/css" href="parking.css">
+    <style>
+        body {
+            background-color: #f0f0f0; /* Light gray background */
+            color: #333; /* Dark text color */
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        #top-bar {
+            background-color: #333; /* Dark background for the navigation bar */
+            padding: 10px;
+            text-align: center;
+        }
+
+        #top-bar ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        #top-bar ul li {
+            display: inline;
+            margin-right: 20px;
+        }
+
+        #top-bar ul li a {
+            text-decoration: none;
+            color: #fff; /* White text color for navigation links */
+            font-weight: bold;
+            font-size: 16px;
+        }
+
+        #top-bar ul li a:hover {
+            color: #ddd; /* Light gray text color on hover */
+        }
+
+        h1 {
+            text-align: center;
+        }
+
+        form {
+            max-width: 300px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #fff; /* White background for the form */
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+            color: #333; /* Dark text color for labels */
+        }
+
+        input {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 16px;
+            box-sizing: border-box;
+        }
+
+        button {
+            width: 100%;
+            padding: 10px;
+            background-color: #333; /* Dark background for the button */
+            color: #fff; /* White text color for the button */
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #555; /* Slightly darker background on hover */
+        }
+    </style>
+</head>
+<body>
+    <div id="top-bar">
+        <ul>
+            <li><a href="parkinglive_U_C_3.html">Home</a></li>
+            <li><a href="feedback.html">Feedback</a></li>
+         
+        </ul>
+    </div>
+
+    <h1>ParkMe</h1>
+    <h1>Admin Login</h1>
+    <form onsubmit="authenticate(); return false;">
+        <label for="username">Username:</label>
+        <input type="text" id="username" required>
+        <br>
+        <label for="password">Password:</label>
+        <input type="password" id="password" required>
+        <br>
+        <button type="submit">Login</button>
+    </form>
+
+    <script>
+        function redirectToAdminPage() {
+            window.location.href = 'admin.html';
+        }
+
+        function authenticate() {
+            const username = document.getElementById('username').value;
+            const password = document.getElementById('password').value;
+
+            if (username === 'Admin' && password === 'admin') {
+                // Simulate successful login
+                alert('Login successful!');
+                // Redirect to the admin page
+                redirectToAdminPage();
+            } else {
+                // Simulate failed login
+                alert('Invalid username or password. Please try again.');
+            }
+        }
+    </script>
+</body>
+</html>
