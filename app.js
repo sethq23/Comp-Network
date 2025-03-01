@@ -221,4 +221,14 @@ function getCurrentDate() {
     const month = (now.getMonth() + 1).toString().padStart(2, '0');
     const day = now.getDate().toString().padStart(2, '0');
     return `${year}-${month}-${day}`;
+    
 }
+document.addEventListener("DOMContentLoaded", function () {
+    fetch("http://localhost:5000/users")
+        .then(response => response.json())
+        .then(data => {
+            console.log("User Data:", data);
+            // You can process and display user data here
+        })
+        .catch(error => console.error("Error fetching data:", error));
+});
